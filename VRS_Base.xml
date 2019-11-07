@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <Container version="2">
   <Name>VRS</Name>
-  <Repository>iotdasc/aphp7</Repository>
+  <Repository>iotdasc/vrs_base</Repository>
   <Registry>https://hub.docker.com/r/iotdasc/vrs_base/</Registry>
   <Network>bridge</Network>
   <MyIP/>
