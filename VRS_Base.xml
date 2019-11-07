@@ -1,0 +1,57 @@
+<?xml version="1.0"?>
+<Container version="2">
+  <Name>VRS</Name>
+  <Repository>iotdasc/aphp7</Repository>
+  <Registry>https://hub.docker.com/r/iotdasc/vrs_base/</Registry>
+  <Network>bridge</Network>
+  <MyIP/>
+  <Shell>sh</Shell>
+  <Privileged>false</Privileged>
+  <Support>https://hub.docker.com/r/iotdasc/vrs_base/</Support>
+  <Project/>
+  <Overview>   Bas-container för VRS</Overview>
+  <Category/>
+  <WebUI/>
+  <TemplateURL/>
+  <Icon>https://i.imgur.com/rZSF70E.png?1</Icon>
+  <ExtraParams/>
+  <PostArgs/>
+  <CPUset/>
+  <DonateText/>
+  <DonateLink/>
+  <Description>   Ubuntu 18.04 med Apache2, PHP7 samt diverse moduler</Description>
+  <Networking>
+    <Mode>bridge</Mode>
+    <Publish>
+      <Port>
+        <HostPort>4858</HostPort>
+        <ContainerPort>80</ContainerPort>
+        <Protocol>tcp</Protocol>
+      </Port>
+    </Publish>
+  </Networking>
+  <Data>
+    <Volume>
+      <HostDir>/mnt/user/appdata/vrs/www</HostDir>
+      <ContainerDir>/var/www/html</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+    <Volume>
+      <HostDir>/mnt/user/appdata/vrs/logs</HostDir>
+      <ContainerDir>/var/log/apache2</ContainerDir>
+      <Mode>rw</Mode>
+    </Volume>
+  </Data>
+  <Environment>
+    <Variable>
+      <Value>vrs.safekeeper.se</Value>
+      <Name>server_name</Name>
+      <Mode/>
+    </Variable>
+  </Environment>
+  <Labels/>
+  <Config Name="HTTP" Target="80" Default="" Mode="tcp" Description="Container Port: 80" Type="Port" Display="always" Required="false" Mask="false">4858</Config>
+  <Config Name="www" Target="/var/www/html" Default="" Mode="rw" Description="Web-root" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/vrs/www</Config>
+  <Config Name="logs" Target="/var/log/apache2" Default="" Mode="rw" Description="Apache logs" Type="Path" Display="always" Required="false" Mask="false">/mnt/user/appdata/vrs/logs</Config>
+  <Config Name="ServerName" Target="server_name" Default="" Mode="" Description="Sets ServerName in Apache config" Type="Variable" Display="always" Required="false" Mask="false">vrs.safekeeper.se</Config>
+</Container>
